@@ -1,14 +1,12 @@
-import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
-import { provideServerRendering } from '@angular/platform-server';
-import { provideServerRouting } from '@angular/ssr';
-import { appConfig } from './app.config';
-import { serverRoutes } from './app.routes.server';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { routes } from './app.routes';
 
-const serverConfig: ApplicationConfig = {
+export const config: ApplicationConfig = {
   providers: [
-    provideServerRendering(),
-    provideServerRouting(serverRoutes)
+    provideRouter(routes),
+    provideHttpClient(withFetch())
   ]
 };
-
-export const config = mergeApplicationConfig(appConfig, serverConfig);
+// This module configures the Angular application by providing the router and HTTP client services. It uses the routes defined in app.routes.ts to set up the routing for the application.

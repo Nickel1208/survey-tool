@@ -1,0 +1,37 @@
+<div class="container" #containerRef>
+  <div class="form-container sign-up-container">
+    <form (ngSubmit)="register()">
+      <h1>Account erstellen</h1>
+      <span>oder registriere dich mit deiner E-Mail</span>
+      <input type="text" placeholder="Name" [(ngModel)]="registerName" name="registerName" />
+      <input type="email" placeholder="E-Mail" [(ngModel)]="registerEmail" name="registerEmail" />
+      <input type="password" placeholder="Passwort" [(ngModel)]="registerPassword" name="registerPassword" />
+      <button type="submit">Registrieren</button>
+    </form>
+  </div>
+
+  <div class="form-container sign-in-container">
+    <form (ngSubmit)="login()">
+      <h1>Anmelden</h1>
+      <span>mit deinem Konto</span>
+      <input type="email" placeholder="E-Mail" [(ngModel)]="email" name="email" />
+      <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" />
+      <button type="submit">Einloggen</button>
+    </form>
+  </div>
+
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Willkommen zurück!</h1>
+        <p>Um verbunden zu bleiben, melde dich mit deinen persönlichen Daten an</p>
+        <button class="ghost" (click)="switchToSignIn()">Anmelden</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hallo, Freund!</h1>
+        <p>Gib deine persönlichen Daten ein und starte deine Reise mit uns</p>
+        <button class="ghost" (click)="switchToSignUp()">Registrieren</button>
+      </div>
+    </div>
+  </div>
+</div>
